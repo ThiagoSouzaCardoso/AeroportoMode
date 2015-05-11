@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/_template.xhtml">
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Bem vindo ao Sistema de Aeroporto - AirPort</title>
+	<link type="text/css" rel="stylesheet" href="dot-luv/skin.css" />
+
+
+
+	<ui:define name="corpo">
+			<h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: darkred" /> 
+			<h:outputText value="Sessão Expirada" rendered="#{param.expired}" style="color: darkred" />
+
+		<form action="j_spring_security_check" method="post">
+			<p:panelGrid style="column-style: hidden">
+			
+				<f:facet name="header">
+					<p:row>
+						<p:column>
+		           		     #{msg.label_loginSistema}
+		           		</p:column>   
+	           		</p:row>  
+    			</f:facet>
+    			
+    			<p:row>  
+	       			 <p:column style="font-weight: bold;">
+	       			 	<h:outputLabel for="j_username" value="#{msg.label_login} *" />
+	       			 	<h:inputText id="j_username" required="true" />
+	       			 </p:column>
+    			</p:row>
+    			
+    			<p:row>
+	    			<p:column style="font-weight: bold;">
+		    			<h:outputLabel for="j_password" value="#{msg.label_senha} * " />
+		    			<h:inputSecret id="j_password" required="true" />
+	    			</p:column>
+    			</p:row>
+
+				<f:facet name="footer">
+					<p:row>
+						<p:column style="text-align: center">
+							<h:commandButton value="#{msg.label_login}" type="submit"/>
+						</p:column>
+				    </p:row>
+				</f:facet>
+				
+			</p:panelGrid>
+			
+		</form>
+	
+	</ui:define>
+</ui:composition>
+</html>

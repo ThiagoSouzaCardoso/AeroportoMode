@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets" 
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+   
+ 
+		
+			<h:form id="dadosAeronaves" prependId="false" enctype="multipart/form-data">	
+			<p:growl id="messagem" showDetail="true" globalOnly="true" />
+			
+				<!--<fieldset>-->
+				<div align="left">
+					<p:panel id="pnl" header="#{msg.label_aircraft_data}"> 
+				
+				<!--<legend>#{bundle.label_aircraft_data}</legend>-->
+					<h:panelGrid columns="4">
+							<h:outputText value="#{msg.label_aircraft_name}"/><br/>
+							<p:inputText value="#{aeronaveBean.aeronave.nome}" id="nome" />
+							<p:message for="nome"/>
+							
+							<h:outputText value="#{msg.label_aircraft_seats}" for="assentos"/><br/>
+							<p:inputText id="quantidadeAssentos" value="#{aeronaveBean.aeronave.quantidadeAssentos}" />
+							<p:message for="quantidadeAssentos"/>
+							
+					<p:commandButton value="#{msg.label_saveaircraft}" update="dadosAeronaves messagem" action="#{aeronaveBean.salvarAeronave}">
+					</p:commandButton>
+
+					</h:panelGrid>
+					</p:panel>
+					</div>
+				<!--</fieldset> -->
+			</h:form>
+	
+</html>	  

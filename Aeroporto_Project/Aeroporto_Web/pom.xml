@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>Aeroporto_Project</artifactId>
+    <groupId>br.com.usjt.aeroporto</groupId>
+    <version>1.0</version>
+  </parent>
+  <artifactId>Aeroporto_Web</artifactId>
+  <packaging>war</packaging>
+  <name>Aeroporto_Web</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+	  <dependency>
+			  	<groupId>com.sun.faces</groupId>
+			  	<artifactId>jsf-api</artifactId>
+			  	<version>2.1.14</version>
+	  </dependency>
+	  <dependency>
+			  	<groupId>com.sun.faces</groupId>
+			  	<artifactId>jsf-impl</artifactId>
+			  	<version>2.1.14</version>
+	  </dependency>
+	  <dependency>
+				<groupId>org.primefaces</groupId>
+				<artifactId>primefaces</artifactId>
+				<version>3.4.2</version>
+	  </dependency>
+	  <dependency>
+	  	<groupId>javax.el</groupId>
+	  	<artifactId>javax.el-api</artifactId>
+	  	<version>2.2.4</version>
+	  </dependency>
+	  <dependency>
+	  	<groupId>br.com.usjt.aeroporto</groupId>
+	  	<artifactId>Aeroporto_Model</artifactId>
+	  	<version>1.0</version>
+	  </dependency>
+	  <dependency>
+	  	<groupId>commons-fileupload</groupId>
+	  	<artifactId>commons-fileupload</artifactId>
+	  	<version>1.3.1</version>
+	  </dependency>
+  </dependencies>
+  
+  <!-- Maven repositories -->
+	<repositories>
+    	<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories> 
+  
+  <build>
+    <finalName>Aeroporto_Web</finalName>
+    <resources>
+			<resource>
+				<directory>src/main/resource</directory>
+			</resource>
+		</resources>
+  </build>
+  
+</project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence:persistence version="2.0" 
+	xmlns:persistence="http://java.sun.com/xml/ns/persistence" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence 
+	http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd ">
+
+	<persistence:persistence-unit name="aeroporto">
+		<persistence:class>br.com.usjt.aeroporto.entity.Aeronave</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Voo</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Passagem</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Passageiro</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Pagamento</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Usuario</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Grupo</persistence:class>
+		<persistence:class>br.com.usjt.aeroporto.entity.Direito</persistence:class>
+	
+		<persistence:properties>
+			<persistence:property name="hibernate.format_sql" value="true"/>
+			<persistence:property name="hibernate.show_sql" value="true"/>
+			<persistence:property name="hibernate.hbm2ddl.auto" value="update" />
+			<persistence:property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+		</persistence:properties>
+	</persistence:persistence-unit>
+	
+	
+</persistence:persistence>

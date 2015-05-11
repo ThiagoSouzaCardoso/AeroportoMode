@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets" 
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+   
+ <ui:composition template="/_template.xhtml">
+<ui:define name="titulo">
+	<title>Sistema Aeroporto - AirPort</title>
+	</ui:define>
+	<ui:define name="usuario">
+
+	</ui:define>
+	
+
+	<ui:define name="corpo">
+		<h2>#{bundle.label_cadastroPassageiro}</h2>
+			<h:form id="dadosAeronaves" prependId="false" enctype="multipart/form-data">	
+			<p:growl id="messagem" showDetail="true" globalOnly="true" />
+			<h:outputScript name="locale-primefaces.js" library="js" />
+			
+				<!-- <fieldset>
+					<legend>#{bundle.label_passageiro_data}</legend>-->
+					<div align="left">
+					<p:panel id="pnl" header="#{msg.label_passageiro_data}"> 
+					
+					<h:panelGrid columns="3">
+							<h:outputText value="#{msg.label_passageiro_tipoTratamento}" for="tipoTratamento"/>
+							<p:selectOneMenu id="tipoTratamento" value="#{passageiroBean.passageiro.formaTratamento}" effect="fade" >
+								<f:selectItem  itemLabel="" itemValue="" />
+								<f:selectItems value="#{passageiroBean.formaTratamento }" var="formaTratamento" itemLabel="#{formaTratamento.description}" itemValue="#{formaTratamento}" />
+							</p:selectOneMenu>
+							<p:message for="tipoTratamento"/>
+							
+							<h:outputText value="#{msg.label_passageiro_nome}" for="nome"/>
+							<p:inputText value="#{passageiroBean.passageiro.nome}" id="nome" size="14" maxlength="12"/>
+							<p:message for="nome"/>
+							
+							<h:outputText value="#{msg.label_passageiro_sobrenome}" for="sobrenome"/>
+							<p:inputText value="#{passageiroBean.passageiro.sobreNome}" id="sobrenome"/>
+							<p:message for="sobrenome"/>
+							
+							<h:outputText value="#{msg.label_passageiro_dataNascimento}" for="dataNascimento"/>
+							<p:calendar id="dataNascimento" value="#{passageiroBean.passageiro.dataNascimento.time}" showButtonPanel="true" locale="#{internacionalizacaoBean.locale}" mode="popup" showOn="button" navigator="true"/>
+							<p:message for="dataNascimento"/>
+							
+							<h:outputText value="#{msg.label_passageiro_email}" for="email"/>
+							<p:inputText id="email" value="#{passageiroBean.passageiro.email}" />
+							<p:message for="email"/>
+							
+                            <h:outputText value="#{msg.label_passageiro_tipoPassageiro}" for="tipoPassageiro"/>
+							<p:selectOneMenu id="tipoPassageiro" value="#{passageiroBean.passageiro.tipoPassageiro}" effect="fade" >
+								<f:selectItem  itemLabel="" itemValue="" />
+								<f:selectItems value="#{passageiroBean.tipoPassageiro }" var="tipoPassageiro" itemLabel="#{tipoPassageiro.description}" itemValue="#{tipoPassageiro}" />
+							</p:selectOneMenu>
+							<p:message for="tipoPassageiro"/>
+							
+					      <p:commandButton  id="saveBtn" value="#{msg.label_savePassageiro}" update="dadosAeronaves messagem" action="#{passageiroBean.salvaPassageiro}"/>
+					
+					</h:panelGrid>
+					</p:panel>
+					</div>
+					<p:blockUI block="pnl" trigger="saveBtn" />
+			<!-- </fieldset> -->
+			</h:form>
+	</ui:define>
+ </ui:composition>
+</html>	  

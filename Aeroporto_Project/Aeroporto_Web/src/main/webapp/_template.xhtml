@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html"/>
+<h:head>
+<h:outputStylesheet library="css" name="grid.css"/>
+<h:outputStylesheet library="css" name="style.css"/>
+<ui:insert name="titulo"/>
+</h:head>
+<h:body>
+<div align="center">
+
+<f:view locale="#{internacionalizacaoBean.locale}"/>
+
+		<h:form>
+		
+				<p:toolbar style="text-align: center; width: 900px">
+					<p:toolbarGroup align="left">
+						<p:menubar autoSubmenuDisplay="false" style="text-align: center; width: 796px;border:0px; ">
+							<p:menuitem url="passageiro.xhtml" value="Passageiros" />
+							<p:menuitem url="aeronave.xhtml" value="Aeronaves" />
+						</p:menubar>	
+					</p:toolbarGroup>
+					
+					<p:toolbarGroup align="right">
+								<h:commandLink action="#{internacionalizacaoBean.mudaParaIngles}" >
+			                   		<p:graphicImage library="imagens" name="ingles.png"/> 
+			                    </h:commandLink>
+								
+								<h:commandLink action="#{internacionalizacaoBean.mudaParaFrances}">
+                   					<p:graphicImage library="imagens" name="frances.png"/> 
+                   				</h:commandLink>		                   
+		                   		
+		                   		<h:commandLink action="#{internacionalizacaoBean.mudaParaPortugues}">
+                   					<p:graphicImage library="imagens" name="portugues.png"/> 
+                  				</h:commandLink>
+                  				
+					</p:toolbarGroup>
+				</p:toolbar>
+		</h:form>
+</div>		 
+
+	<div id="blocoCabecalho">
+		<div class="container">
+			<h:graphicImage library="imagens" name="logo.png" id="logoCompany"/>
+			<br/>
+			<br/>
+			<ui:insert name="usuario" >
+				<div id="usuarioLogado">
+					<h:form>
+						<p:commandButton  type="push" value="Logout" icon="ui-icon-power"  action="#{loginBean.logout}" rendered="#{loginBean.logado}"/>
+					</h:form>	
+				</div>
+
+
+			</ui:insert>
+		</div>
+	</div>
+	<div id="blocoConteudo">
+		<div class="container" align="center">
+			<ui:insert name="corpo" />
+		</div>
+	</div>
+	
+	<div id="blocoRodape">
+		<div class="container">
+		<p>Copyrigth 2012. Todos os Direitos reservados a Thiago Souza</p>
+		</div>
+	</div>
+</h:body>
+</html>
